@@ -1,0 +1,95 @@
+/* *,
+*::before,
+*::after {
+  transition: 400ms all ease-in-out 50ms;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+} */
+
+.inp[type="checkbox"] {
+  display: none;
+}
+
+/* Toggle State is :CHECKED */
+
+.inp[type="checkbox"]:checked ~ div {
+  background: rgba(0, 122, 122, 1); /* Teal bg */
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2) 0 1px 1px 0 rgba(0, 0, 0, 0.14) 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.inp[type="checkbox"]:checked ~ div label {
+  left: 18px;
+  transform: rotate(360deg);
+}
+
+/* Shared */
+
+.togDiv,
+.tog {
+  border-radius: 9999px;
+}
+
+/* Toggle State is 'un':checked */
+
+.togDiv {
+  height: 26px;
+  width: 42px;
+  background: rgba(224, 224, 224, 1); /* grey bg */
+  position: relative;
+  top: calc(50vh - 50px);
+  left: calc(50vw - 100px);
+}
+
+.tog {
+  height: 22px;
+  width: 22px;
+  background: rgba(255, 255, 255, 1); /* white knob */
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  cursor: pointer;
+
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2) 0 1px 1px 0 rgba(0, 0, 0, 0.14) 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.tog::before {
+  content: "";
+  height: 15.5px;
+  width: 1px; /* stroke */
+  position: absolute;
+  top: calc(50% - 8px);
+  left: calc(50% - 1px);
+  transform: rotate(45deg);
+}
+
+.tog::after {
+  content: "";
+  height: 1px; /* stroke */
+  width: 15.5px;
+  position: absolute;
+  top: calc(50% - 0.5px);
+  left: calc(50% - 8px);
+  transform: rotate(45deg);
+}
+
+.tog::before,
+.tog::after {
+  background: rgba(97, 97, 97, 1);
+  border-radius: 2px;
+}
+
+/* pesduo class on toggle */
+
+.inp[type="checkbox"]:checked ~ div .tog::before {
+  height: 12.5px;
+  top: calc(55% - 6.5px);
+  left: calc(60% - 1px);
+  background: rgba(37, 127, 57, 1);
+}
+
+.inp[type="checkbox"]:checked ~ div .tog::after {
+  width: 6px;
+  top: calc(95% - 7.5px);
+  left: calc(22.5% - 1.5px);
+  background: rgba(37, 127, 57, 1);
+}
